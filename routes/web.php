@@ -9,8 +9,4 @@ Route::post('/register', [BasicController::class, 'submit_register'])->name('reg
 Route::get('/login', [BasicController::class, 'login'])->name('login');
 Route::post('/login', [BasicController::class, 'submit_login'])->name('login.post');
 
-
-Route::middleware('auth')->group(function (){
-    Route::get('/index', [BasicController::class, 'index'])->name('index');
-    Route::post('/logout', [BasicController::class, 'logout'])->name('logout');
-});
+Route::get('/index', [BasicController::class, 'index'])->name('index');

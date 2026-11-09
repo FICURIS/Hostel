@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>
-        <a href="requests.html" class="logo"></a>
+        <a href="requests.html" class="logo">Хостел</a>
         @auth   
         <nav>
             <a href="{{ route('index') }}">Мои заявки</a>

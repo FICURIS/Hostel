@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
-use App\Http\Requests\AuthorizationRequest;
-
-use App\Models\User;
 use App\Models\Role;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,7 +16,7 @@ class BasicController extends Controller
     {
         return view('static.register');
     }
-
+    
     public function login()
     {
         return view('static.login');
@@ -28,9 +27,8 @@ class BasicController extends Controller
         return view('static.index');
     }
 
-    public function submit_register(LoginRequest $request)
+    public function submit_register(RegisterRequest $request)
     {
-        dd('МЕТОД ДОСТИГНУТ', $request->all());
         $data = $request->validated();
 
         $guestRole = Role::where('name', 'guest')->first();
@@ -48,8 +46,8 @@ class BasicController extends Controller
 
         return redirect()->route('index')->with('success', 'Регистрация прошла успешно!');
     }
-    
-    public function submit_login(AuthorizationRequest $request)
+
+    public function submit_login(LoginRequest $request)
     {
         $data = $request->validated();
 
@@ -62,13 +60,5 @@ class BasicController extends Controller
         return back()->withErrors([
             'login' => 'Неверный логин или пароль.',
         ])->onlyInput('login');
-    }
-
-    public function logout(Request $request)
-    {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect()->route('index');
     }
 }
