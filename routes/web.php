@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controlles\BasicController;
+use App\Http\Controllers\BasicController;
 
 Route::get('/', [BasicController::class, 'login'])->name('login');
 Route::get('/authorization', [BasicController::class, 'authorization'])->name('authorization');

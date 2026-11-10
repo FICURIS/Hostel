@@ -10,7 +10,7 @@
         <a href="requests.html" class="logo">Конференции.РФ</a>
         @auth   
         <nav>
-            <a href="{{ route('requests') }}">Мои заявки</a>
+            <a href="{{ route('login') }}">Мои заявки</a>
             <a href="{{ route('create_requests') }}">Новая заявка</a>
             <form action="{{ route('register.post') }}" method="POST">
                 @csrf
@@ -18,7 +18,7 @@
             </form>
         
         @endauth
-            <a href="{{ route('register') }}">Регистрация</a>
+            <a href="{{ route('login') }}">Регистрация</a>
             <a href="{{ route('authorization') }}">Войти</a>
         @guest
         </nav>
