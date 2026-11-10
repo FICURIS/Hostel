@@ -19,11 +19,12 @@
     <div class="main-block">
         <h1>Авторизация</h1>
         <form action="{{ route('authorization.post') }}" method="POST">
+            @csrf
             <label for="login">Логин</label>
             <input type="text" placeholder="Введите логин" name="login" id="login" required minlength="6" value="{{ old('login') }}">
 
             <label for="password">Пароль</label>
-            <input type="password" placeholder="Введите пароль" name="password" id="passsword" required minlength="8">
+            <input type="password" placeholder="Введите пароль" name="password" id="password" required minlength="8">
 
             <button type="submit">Войти</button>
 

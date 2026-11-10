@@ -36,7 +36,7 @@
             <label for="login">Телефон</label>
             <input type="tel" placeholder="8(XXX)XXX-XX-XX" name="phone" id="phone" required value="{{ old('phone') }}">
 
-            <button type="submit">Зарегестрироваться</button>
+            <button type="submit">Зарегистрироваться</button>
 
             <a href="{{ route('authorization') }}">Уже есть аккаунт? Войти</a>
         </form>
