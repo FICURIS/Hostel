@@ -23,7 +23,7 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'login' =>['required', 'string', 'min:6', 'regex:/^[a-zA-Z0-0]+$/', 'unique:users'],
+            'login' =>['required', 'string', 'min:6', 'regex:/^[a-zA-Z0-9]+$/', 'unique:users'],
             'password' =>['required', 'string', 'min:8'],
             'name' =>['required', 'string', 'regex:/^[А-Яа-яЁё\s]+$/u'],
             'phone' => ['required', 'string', 'regex:/^8\(\d{3}\)\d{3}-\d{2}-\d{2}$/'],

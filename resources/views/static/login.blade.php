@@ -18,7 +18,7 @@
 <div class="main-container">
     <div class="main-block">
         <h1>Регистрация</h1>
-        <form action="{{ route('login.post') }}" method="POST">
+        <form action="{{ route('register.post') }}" method="POST">
             @csrf
 
             <label for="login">Логин</label>
@@ -38,7 +38,7 @@
 
             <button type="submit">Зарегистрироваться</button>
 
-            <a href="{{ route('authorization') }}">Уже есть аккаунт? Войти</a>
+            <a href="{{ route('login') }}">Уже есть аккаунт? Войти</a>
         </form>
     </div>
 </div>

@@ -7,20 +7,21 @@
 </head>
 <body>
     <header>
-        <a href="requests.html" class="logo">Конференции.РФ</a>
+        <a href="requests.html" class="logo"></a>
         @auth   
         <nav>
-            <a href="{{ route('login') }}">Мои заявки</a>
-            <a href="{{ route('create_requests') }}">Новая заявка</a>
-            <form action="{{ route('register.post') }}" method="POST">
+            <a href="{{ route('index') }}">Мои заявки</a>
+            <a href="{{  route('index') }}">Новая заявка</a>
+            <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit" class="link-btn">Выйти</button>
             </form>
         
         @endauth
-            <a href="{{ route('login') }}">Регистрация</a>
-            <a href="{{ route('authorization') }}">Войти</a>
         @guest
+
+            <a href="{{ route('register') }}">Регистрация</a>
+            <a href="{{ route('login') }}">Войти</a>
         </nav>
 
         @endguest

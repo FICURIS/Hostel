@@ -6,6 +6,10 @@
 
 @section('content')
 
+@if(session('success'))
+<div class="alert-success">{{ session('success') }}</div>
+@endif
+
 <div class="main-container">
     <h1 class="page-title">Главная</h1>
 
