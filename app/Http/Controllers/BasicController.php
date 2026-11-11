@@ -13,14 +13,14 @@ use Illuminate\Support\Facades\Hash;
 
 class BasicController extends Controller
 {
+    public function register()
+    {
+        return view('static.register');
+    }
+
     public function login()
     {
         return view('static.login');
-    }
-
-    public function authorization()
-    {
-        return view('static.authorization');
     }
 
     public function index()
@@ -28,9 +28,9 @@ class BasicController extends Controller
         return view('static.index');
     }
 
-    public function submit_login(LoginRequest $request)
+    public function submit_register(LoginRequest $request)
     {
-        dd($request->all()); 
+        dd('МЕТОД ДОСТИГНУТ', $request->all());
         $data = $request->validated();
 
         $guestRole = Role::where('name', 'guest')->first();
@@ -49,7 +49,7 @@ class BasicController extends Controller
         return redirect()->route('index')->with('success', 'Регистрация прошла успешно!');
     }
     
-    public function submit_authorization(AuthorizationRequest $request)
+    public function submit_login(AuthorizationRequest $request)
     {
         $data = $request->validated();
 
