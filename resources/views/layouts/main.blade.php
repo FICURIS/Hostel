@@ -10,8 +10,8 @@
         <a href="requests.html" class="logo">Хостел</a>
         @auth   
         <nav>
-            <a href="{{ route('index') }}">Мои заявки</a>
-            <a href="{{  route('index') }}">Новая заявка</a>
+            <a href="{{ route('index') }}"></a>
+            <a href="{{  route('index') }}">Н</a>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit" class="link-btn">Выйти</button>
