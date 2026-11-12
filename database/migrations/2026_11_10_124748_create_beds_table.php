@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('beds', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('room_id')->constrained('roles');
-            $table->string('number');
+            $table->foreignId('room_id')->constrained('rooms');
+            $table->unsignedSmallInteger('number');
             $table->string('status');
             $table->timestamps();
         });

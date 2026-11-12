@@ -51,7 +51,7 @@
         <form action="{{ route('reviews.store')}}" method="POST">
             @csrf
 
-            <label for "text">Ваш отзыв</label>
+            <label for="text">Ваш отзыв</label>
             <textarea name="text" id="text" rows="5" required minlength="10" maxlength="1000" placeholder="Расскажите о вашем проживании">{{ old('text') }}</textarea>
             <button type="submit">Отправить</button>
         </form>

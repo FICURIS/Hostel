@@ -15,6 +15,7 @@ class RoleSeeder extends Seeder
     {
         Role::create([
             'name' => 'guest',
+            'name' => 'admin'
         ]);
     }
 }
