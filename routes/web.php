@@ -5,6 +5,10 @@ use App\Http\Controllers\BasicController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ReviewController;
 
+Route::get('/', function () {
+    return redirect('/index');
+});
+
 Route::get('/register', [BasicController::class, 'register'])->name('register');
 Route::post('/register', [BasicController::class, 'submit_register'])->name('register.post');
 

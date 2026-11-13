@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('header-title')</title>
+
+    @vite(['resources\css\app.css', resources\js\app.js])
 </head>
 <body>
     <header>
@@ -11,7 +13,7 @@
         @auth   
         <nav>
             <a href="{{ route('index') }}"></a>
-            <a href="{{  route('index') }}">Н</a>
+            <a href="{{  route('index') }}">Главная</a>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit" class="link-btn">Выйти</button>
