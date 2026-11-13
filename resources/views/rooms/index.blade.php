@@ -4,11 +4,11 @@
 Номера
 @endsection
 
-@section
+@section('content')
 <div class="main-container">
     <h1>Доступные номера</h1>
 
-    @forelse($rooms as room)
+    @forelse($rooms as $room)
     <div class="room-card">
         <h2>{{ $room->title }}</h2>
         <p>{{ $room->description }}</p>
