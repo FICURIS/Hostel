@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('header-title')</title>
 
-    @vite(['resources\css\app.css', resources\js\app.js])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <header>
+    <header class="site-header">
         <a href="requests.html" class="logo">Хостел</a>
-        @auth   
-        <nav>
+        <nav class="main-nav">
+        @auth
             <a href="{{ route('index') }}"></a>
             <a href="{{  route('index') }}">Главная</a>
             <form action="{{ route('logout') }}" method="POST">
