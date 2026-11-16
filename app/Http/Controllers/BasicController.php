@@ -54,7 +54,7 @@ class BasicController extends Controller
         if (Auth::attempt(['login' => $data['login'], 'password' => $data['password']]))
             {
             $request->session()->regenerate();
-            return redirect()->route('index')->with('success', 'Вы успешно вошли!');
+            return redirect()->route('index');
             }
 
         return back()->withErrors([

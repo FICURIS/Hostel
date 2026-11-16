@@ -5,20 +5,19 @@
 @endsection
 
 @section('content')
-@if($errors->any())
-    <div class="block-errors">
-        <ul>
-            @foreach($errors->all() as $err)
-                <li>{{ $err }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
 <div class="main-container">
     <div class="main-block">
-        <h1>Регистрация</h1>
         <div class="auth-card">
+            <h1>Регистрация</h1>
+            @if($errors->any())
+                <div class="block-errors">
+                    <ul>
+                        @foreach($errors->all() as $err)
+                            <li>{{ $err }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="{{ route('register.post') }}" method="POST">
             @csrf
 

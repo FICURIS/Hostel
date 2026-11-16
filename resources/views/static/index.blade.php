@@ -11,8 +11,6 @@
 @endif
 
 <div class="main-container">
-    <h1 class="page-title">Главная</h1>
-
 </div>
 <div class="search-section">
     
@@ -30,7 +28,7 @@
                 <label for="check_out">Дата выезда</label>
                 <input type="date" name="check_out" id="check_out" required min="{{now()->addDay()->toDateString() }}" value="{{ old('check_out') }}">
             </div>
-            <button type="submit">Найти</button>
+            <button type="submit" class="btn-search">Найти</button>
         </form>
     </div>
 </div>

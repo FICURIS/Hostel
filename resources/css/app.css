@@ -21,6 +21,7 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    padding: 20px;
 }
 
 .logo {
@@ -67,10 +68,11 @@ body {
 .main-container {
     max-width: 1200px;
     margin: 40px auto;
-    padding: 0 20px;
+    padding: 0 20px; 
 }
 
 .auth-card {
+    margin: 0 auto;
     background: #fff;
     width: 100%;
     max-width: 450px;
@@ -162,30 +164,35 @@ body {
 }
 
 .search-section {
-    background-color: #f9f0fa;
-    padding: 50px 20px;
+    padding: 20px;
+    padding: 40px 20px;
     border-bottom: 1px solid #e9ecef;
 }
 
 .search-block {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     background: #fff;
-    border-radius: 6px;
-    text-align: center;
+    padding: 25px 30px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 .search-block h2 {
     font-size: 22px;
-    margin-bottom: 25px;
+    margin-bottom: 0;
     color: #333;
 }
 
 .search-form {
     display: flex;
-    justify-content: center;
     align-items: flex-end;
-    gap: 20px;
+    gap: 15px;
+    flex-grow: 1;
+    justify-content: flex-end;
 }
 
 .form-row {
@@ -203,11 +210,30 @@ body {
 .form-row input {
     padding: 12px 15px;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 10px;
     font-size: 16px;
 }
 
 .font-row input:hover {
+    background-color: #1a3b5f;
+}
+
+.btn-search {
+    padding: 12px 24px;
+    background-color: #0d233a;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    white-space: nowrap;
+    height: 46px;
+    margin-bottom: 0;
+}
+
+.btn-search:hover {
     background-color: #1a3b5f;
 }
 
