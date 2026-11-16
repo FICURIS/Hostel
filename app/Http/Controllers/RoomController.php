@@ -11,6 +11,23 @@ class RoomController extends Controller
     {
         $rooms = Room::with('beds')->get();
 
+        $query = \App\Models\Room::with('beds');
+
+        if ($request->filled('check_in') && $request->filled('check_out')) {
+            $checkIn = $request->check_in;
+            $checkOut = $request->check_out;
+
+            $query->whereHas('beds', function ($bedQuery) use ($checkIn, $checkOut) {
+                $bedQuery->whereDoesntHave('applications', function ($appQuery) use ($checkIn, $checkOut){
+                    $appQuery->whereIn('status', ['Новая', 'Подтверждена', 'Заселение'])
+                    ->where('check_in', '<', $checkOut)
+                    ->where('check_out', $checkIn);
+                });
+            });
+        }
+
+        $rooms = $query->get();
+
         return view('rooms.index', compact('rooms'));
     }
 }

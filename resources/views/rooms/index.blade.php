@@ -24,7 +24,7 @@
                     <p class="room-capacity">Вместимость: {{ $room->size }} чел.</p>
                     <p class="room-price">Цена: <strong>{{ $room->price }} ₽</strong></p>
                     
-                    <a href="#" class="btn-book">Забронировать</a>
+                    <a href="{{ route('applications.create', ['bed_id' => $room->beds->first()->id, 'check_in' => request('check_in'), 'check_out' => request('check_out')]) }}" class="btn-book">Забронировать</a>
                 </div>
             </div>
         @empty
