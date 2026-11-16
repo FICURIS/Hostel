@@ -9,7 +9,294 @@ body {
     color: #333;
 }
 
+/* Шапка */
+
 .site-header {
     background: #fff;
     padding: 15px 0;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0d233a;
+    text-decoration: none;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color:#333;
+    font-weight: 500;
+}
+
+.main-nav a:hover {
+    color: #d4a373;
+}
+
+.link-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #721c24;
+    color:#fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.link-btn:hover {
+    background-color: #b82937;
+}
+
+/*  Регистрация */
+
+.main-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.auth-card {
+    background: #fff;
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px;
+}
+
+.auth-card h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color:#0d233a
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #0d233a;
+}
+
+.btn-register {
+    width: 100%;
+    padding: 14px;
+    background-color: #0d233a;
+    color:#fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-register:hover {
+    background-color: #1a3b5f;
+}
+
+.auth-links {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.auth-links a {
+    color: #0d233a;
+    text-decoration: none;
+}
+
+.auth-links:hover {
+    text-decoration: underline;
+}
+
+.block-errors {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.block-errors ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* Главная */
+.page-title {
+    text-align: center;
+    font-size: 32px;
+    color:#0d233a;
+    margin-bottom: 40px;
+}
+
+.search-section {
+    background-color: #f9f0fa;
+    padding: 50px 20px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.search-block {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.search-block h2 {
+    font-size: 22px;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-row label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.form-row input {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.font-row input:hover {
+    background-color: #1a3b5f;
+}
+
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.room-card {
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+}
+
+.room-image {
+    height: 220px;
+    width: 100%;
+}
+
+.room-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.no-image {
+    width: 100%;
+    height: 100%;
+    background: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+}
+
+.room-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.room-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #0d233a;
+}
+
+.room-desc {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.room-capacity {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.room-price {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+.room-price strong {
+    font-size: 20px;
+    color: #0d233a
+}
+
+.btn-book {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    background-color: #0d233a;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-top: auto;
+    transition: background 0.3s;
+}
+.btn-book:hover {
+    background-color: #1a3b5f;
 }

@@ -9,24 +9,25 @@
 </head>
 <body>
     <header class="site-header">
-        <a href="requests.html" class="logo">Хостел</a>
-        <nav class="main-nav">
-        @auth
-            <a href="{{ route('index') }}"></a>
-            <a href="{{  route('index') }}">Главная</a>
-            <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button type="submit" class="link-btn">Выйти</button>
-            </form>
-        
-        @endauth
-        @guest
+        <div class="header-inner">
+            <a href="requests.html" class="logo">Хостел</a>
+            <nav class="main-nav">
+            @auth
+                <a href="{{ route('index') }}"></a>
+                <a href="{{  route('index') }}">Главная</a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="link-btn">Выйти</button>
+                </form>
 
-            <a href="{{ route('register') }}">Регистрация</a>
-            <a href="{{ route('login') }}">Войти</a>
-        </nav>
+            @endauth
+            @guest
 
-        @endguest
+                <a href="{{ route('register') }}">Регистрация</a>
+                <a href="{{ route('login') }}">Войти</a>
+            @endguest
+            </nav>
+        </div>
     </header>
     <main class="container">
     @yield('content')
