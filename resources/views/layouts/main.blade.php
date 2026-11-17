@@ -10,16 +10,21 @@
 <body>
     <header class="site-header">
         <div class="header-inner">
-            <a href="requests.html" class="logo">Хостел</a>
+            <a href="#" class="logo">Хостел</a>
             <nav class="main-nav">
             @auth
                 <a href="{{ route('index') }}"></a>
                 <a href="{{  route('index') }}">Главная</a>
+                <a href="{{ route('applications.index') }}">Мои заявки</a>
+
+                @if(auth()->user()->role && auth()->user()->role->name === 'admin')
+                <a href="{{ route('admin.applications.index') }}">Панель админа</a>
+                @endif
+
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button type="submit" class="link-btn">Выйти</button>
                 </form>
-
             @endauth
             @guest
 

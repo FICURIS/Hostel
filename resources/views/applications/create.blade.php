@@ -38,6 +38,14 @@
                     <input type="date" name="check_out" id="check_out" required min="{{ now()->addDay()->toDateString() }}" value="{{ request('check_out', old('check_out')) }}">
             </div>
 
+            <div class="payment-section">
+                <label>Способ оплаты</label>
+                <div class="form-group">
+                    <label><input type="radio" name="payment_method" value="При заезде" checked>При заезде</label>
+                    <label><input type="radio" name="payment_method" value="Картой онлайн">Картой онлайн</label>
+                </div>
+            </div>
+
             <button type="submit" class="btn-book">Подтвердить бронирование</button>
         </form>
     </div>

@@ -22,7 +22,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="login">Логин</label>
-                    <input type="text" placeholder="Введите логин" name="login" id="login" required minlength="6" value="{{ old('login') }}">
+                    <input type="text" placeholder="Введите логин" name="login" id="login" required value="{{ old('login') }}">
                 </div>
 
                 <div class="form-group">

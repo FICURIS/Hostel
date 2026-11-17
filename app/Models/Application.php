@@ -13,6 +13,7 @@ class Application extends Model
         'check_in',
         'check_out',
         'status',
+        'payment_method',
     ];
 
     public function user()
