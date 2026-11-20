@@ -24,7 +24,11 @@ class BasicController extends Controller
 
     public function index()
     {
-        return view('static.index');
+        $rooms = \App\Models\Room::with('beds')->get();
+    
+        $reviews = \App\Models\Review::with('user')->latest()->take(5)->get();
+    
+        return view('static.index', compact('rooms', 'reviews'));
     }
 
     public function submit_register(RegisterRequest $request)
@@ -36,7 +40,9 @@ class BasicController extends Controller
         $user = User::create([
             'login' => $data['login'],
             'password' => ($data['password']),
+            'surname' => $data['surname'],
             'name' => $data['name'],
+            'middlename' => $data['middlename'],
             'email' => $data['email'],
             'phone' => $data['phone'],
             'role_id' => $guestRole ? $guestRole->id : 1,
@@ -44,7 +50,7 @@ class BasicController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('index')->with('success', 'Регистрация прошла успешно!');
+        return redirect()->route('index');
     }
 
     public function submit_login(LoginRequest $request)

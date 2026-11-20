@@ -30,8 +30,16 @@
                 <input type="password" placeholder="Введите пароль" name="password" id="password" required minlength="8">
             </div>
             <div class="form-group">
-                <label for="login">ФИО</label>
-                <input type="text" placeholder="Иванов Иван Иванович" name="name" id="name" required value="{{ old('name') }}">
+                <label for="login">Фамилия</label>
+                <input type="text" placeholder="Введите фамилию" name="surname" id="surname" required value="{{ old('surname') }}">
+            </div>
+            <div class="form-group">
+                <label for="login">Имя</label>
+                <input type="text" placeholder="Введите имя" name="name" id="name" required value="{{ old('name') }}">
+            </div>
+            <div class="form-group">
+                <label for="login">Отчество</label>
+                <input type="text" placeholder="Введите отчетсво" name="middlename" id="middlename" required value="{{ old('middlename') }}">
             </div>
             <div class="form-group">
                 <label for="login">Email</label>

@@ -326,3 +326,58 @@ body {
 .btn-book:hover {
     background-color: #1a3b5f;
 }
+
+
+/* --- БЛОК ОТЗЫВОВ --- */
+.reviews-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.review-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-left: 4px solid #0d233a; /* Темно-синяя полоска слева для красоты */
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.review-author {
+    font-weight: bold;
+    color: #0d233a;
+}
+
+.review-date {
+    color: #888;
+}
+
+.review-text {
+    font-style: italic;
+    color: #444;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.no-reviews {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #777;
+    font-style: italic;
+}

@@ -18,8 +18,23 @@ class ApplicationController extends Controller
     {
         $bed = Bed::with('room')->findOrFail($request->query('bed_id'));
 
-        return view('applications.create', compact('bed'));
+        $checkIn = $request->query('check_in');
+        $checkOut = $request->query('check_out');
+
+        $availableBeds = Bed::where('room_id', $bed->room_id)
+            ->whereDoesntHave('applications', function ($query) use ($checkIn, $checkOut) {
+                if ($checkIn && $checkOut) {
+                    $query->whereIn('status', ['Новая', 'Подтверждена', 'Заселение'])
+                          ->where('check_in', '<', $checkOut)
+                          ->where('check_out', '>', $checkIn);
+                }
+            })
+            ->orderBy('number')
+            ->get();
+
+        return view('applications.create', compact('bed', 'availableBeds', 'checkIn', 'checkOut'));
     }
+
 
     public function store(Request $request)
     {
