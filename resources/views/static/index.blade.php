@@ -10,6 +10,16 @@
 <div class="alert-success">{{ session('success') }}</div>
 @endif
 
+@if($errors->any())
+        <div class="block-errors">
+            <ul>
+                @foreach($errors->all() as $err)
+                    <li>{{ $err }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
 <div class="main-container">
 </div>
 <div class="search-section">
@@ -41,20 +51,26 @@
     @endforelse
 </div>
 
-<div class="reviews-section">
-    <h2 class="page-title">Отзывы наших гостей</h2>
+    <div class="reviews-section">
+        <h2 class="page-title">Отзывы наших гостей</h2>
 
-    <div class="reviews-grid">
-        @forelse($reviews as $review)
-        <div class="review-card">
-            <div class="review-header">
-                <span class="review-author">{{ $review->user->name ?? 'Гость' }}</span>
-            </div>
-            <p class="review-text">{{ $review->text }}</p>
+        <div class="reviews-list">
+            @forelse($reviews as $review)
+                <div class="review-block">
+                    <div class="review-top">
+                        <strong>{{ $review->user->name ?? 'Гость' }}</strong>
+                        @if($review->created_at)
+                            <span>{{ $review->created_at->format('d.m.Y') }}</span>
+                        @endif
+                    </div>
+                    <div class="review-body">
+                        {{ $review->text }}
+                    </div>
+                </div>
+            @empty
+                <p class="no-reviews">Пока нет отзывов.</p>
+            @endforelse
         </div>
-        @empty
-        <p class="no-reviews">Пока нет отзывов.</p>
-        @endforelse
     </div>
 </div>
 @endsection

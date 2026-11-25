@@ -9,6 +9,14 @@ class RoomController extends Controller
 {
     public function index(Request $request)
     {
+
+        $request->validate([
+            'check_in' => 'nullable|date|after_or_equal:today',
+            'check_out' => 'nullable|date|after:check_in',
+        ], [
+            'check_in.after_or_equal' => 'Дата заезда не может быть в прошлом.',
+            'check_out.after' => 'Дата выезда должна быть позже даты заезда.',
+        ]);
         $rooms = Room::with('beds')->get();
 
         $query = \App\Models\Room::with('beds');

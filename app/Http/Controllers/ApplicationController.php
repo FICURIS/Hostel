@@ -100,7 +100,7 @@ class ApplicationController extends Controller
             'bed_id' => $request->bed_id,
             'check_in' => $request->check_in,
             'check_out' => $request->check_out,
-            'status' => 'Подтверждена',
+            'status' => 'Новая',
             'payment_method' => 'Картой онлайн',
         ]);
 

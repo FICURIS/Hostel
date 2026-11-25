@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="main-container">
-    <h1>Оформление брони</h1>
+    <h1 class="page-title">Оформление брони</h1>
 
     @if($errors->any())
         <div class="block-errors">
@@ -27,7 +27,7 @@
             
             <div class="form-group">
                 <label for="bed_id">Выберите место:</label>
-                <select name="bed_id" id="bed_id" required>
+                <select name="bed_id" id="bed_id" required class="form-select">
                     @foreach($availableBeds as $availableBed)
                         <option value="{{ $availableBed->id }}" {{ $availableBed->id == $bed->id ? 'selected' : '' }}>
                             Место №{{ $availableBed->number }}
@@ -49,7 +49,7 @@
             <div class="payment-section">
                 <label>Способ оплаты</label>
                 
-                <div class="form-group">
+                <div class="payment-options">
                     <label>
                         <input type="radio" name="payment_method" value="При заезде" checked> При заезде
                     </label>

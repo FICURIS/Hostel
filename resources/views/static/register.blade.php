@@ -59,4 +59,32 @@
         
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const phoneInput = document.getElementById('phone');
+        if (!phoneInput) return;
+
+        phoneInput.addEventListener('input', function (e) {
+            let digits = this.value.replace(/\D/g, '');
+
+            if (!digits) {
+                this.value = '';
+                return;
+            }
+
+            if (digits[0] !== '8') digits = '8' + digits;
+
+            digits = digits.substring(0, 11);
+
+            let formatted = '8';
+            if (digits.length > 1) formatted += '(' + digits.substring(1, 4);
+            if (digits.length >= 5) formatted += ')' + digits.substring(4, 7);
+            if (digits.length >= 8) formatted += '-' + digits.substring(7, 9);
+            if (digits.length >= 10) formatted += '-' + digits.substring(9, 11);
+
+            this.value = formatted;
+        });
+    });
+</script>
 @endsection

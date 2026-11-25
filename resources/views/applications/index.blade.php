@@ -25,22 +25,30 @@
                 </span>
             </div>
             <div class="app-details">
-                <p>Номер: №{{ $app->bed->number ?? '-' }}</p>
-                <p>Даты проживания: с {{ \Carbon\Carbon::parse($app->check_in)->format('d.m.Y') }} по {{ \Carbon\Carbon::parse($app->check_out)->format('d.m.Y') }}</p>
+                <p><strong>Номер:</strong> {{ $app->bed->room->title ?? 'Неизвестно' }} (Место №{{ $app->bed->number ?? '—' }})</p>
+                <p><strong>Даты:</strong> с {{ \Carbon\Carbon::parse($app->check_in)->format('d.m.Y') }} по {{ \Carbon\Carbon::parse($app->check_out)->format('d.m.Y') }}</p>
+                <p><strong>Оплата:</strong> {{ $app->payment_method ?? 'При заезде' }}</p>
             </div>
             <div class="app-actions">
-                @if($app->status === 'Подтверждена')
-                <form action="{{ route('reviews.store') }}" method="POST">
-                    @csrf
-                    <textarea name="text" rows="3" placeholder="Оставьте ваш отзыв о проживании..." required minlength="10"></textarea>
-                    <button type="submit">Оставить отзыв</button>
-                </form>
+                @if($app->status === 'Заселение')
+                    @if(\App\Models\Review::where('user_id', auth()->id())->exists())
+                        <p>Вы уже оставили отзыв. Спасибо!</p>
+                    @else
+                        <form action="{{ route('reviews.store') }}" method="POST">
+                            @csrf
+                            <textarea name="text" rows="3" placeholder="Оставьте ваш отзыв о проживании" required minlength="10"></textarea>
+                            <button type="submit">Оставить отзыв</button>
+                        </form>
+                    @endif
+
+                @elseif($app->status === 'Подтверждена')
+                    <p>Вы можете оставить отзыв после заселения.</p>
                 @elseif($app->status === 'Новая')
-                <p>Ожидает подтверждения администратором</p>
-                @elseif($app->status ==='Отменена')
-                <p>Заявка отменена</p>
+                    <p>Ожидает подтверждения администратором</p>
+                @elseif($app->status === 'Отменена')
+                    <p>Заявка отменена</p>
                 @elseif($app->status === 'Завершена')
-                <p>Проживание завершено</p>
+                    <p>Проживание завершено. Спасибо, что были у нас!</p>
                 @endif
             </div>
         </div>

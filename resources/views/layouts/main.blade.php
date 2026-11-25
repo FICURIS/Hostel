@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('header-title')</title>
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
     <header class="site-header">
         <div class="header-inner">
-            <a href="#" class="logo">Хостел</a>
+            <a href="/" class="logo"><img src="{{ asset('image/logo.png') }} " alt="Хостел" class="site-logo"></a>
             <nav class="main-nav">
             @auth
                 <a href="{{ route('index') }}"></a>
