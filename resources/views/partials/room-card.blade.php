@@ -1,7 +1,7 @@
 <div class="room-card">
     <div class="room-image">
         @if($room->image)
-            <img src="{{ asset('storage/' . $room->image) }}" alt="{{ $room->title }}">
+            <img src="{{ asset($room->image) }}" alt="{{ $room->title }}">
         @else
             <div class="no-image">Нет фото</div>
         @endif
